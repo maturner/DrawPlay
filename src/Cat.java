@@ -23,6 +23,9 @@ public class Cat {
 	private static final int LEFT_PUPIL_X = (EYE_X / 2);
 	private static final int LEFT_PUPIL_Y = (EYE_Y / 2);
 	private static final int LEFT_PUPIL_SEPARATION = (EYE_SEPARATION / 2);
+	//nose dimensions
+	private static final int NOSE_HEIGHT = (HEAD_DIMENSION/10);
+	private static final int NOSE_WIDTH = (HEAD_DIMENSION/10);
 	
 	// draw will render the Cat on the Graphics object
 	public void draw(Graphics g, int catX, int catY)
@@ -40,7 +43,7 @@ public class Cat {
 		y = catY + EYE_Y;
 		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
 		x += EYE_SEPARATION;
-		g2.fillOval(25, 25, EYE_WIDTH, EYE_HEIGHT);
+		g2.fillOval(x, y, EYE_WIDTH, EYE_HEIGHT);
 		//Draw pupils
 		g2.setColor(Color.black);
 		g2.fillOval(x, y, LEFT_PUPIL_X, LEFT_PUPIL_Y);
@@ -51,7 +54,13 @@ public class Cat {
 		x = catX + MOUTH_X;
 		y = catY + MOUTH_Y;
 		g2.fillOval(x, y, MOUTH_WIDTH, MOUTH_HEIGHT);
+		//Draw nose
+		g2.setColor(Color.white);
+		x = catX;
+		y = catY;
+		g2.fillOval(x, y, NOSE_WIDTH, NOSE_HEIGHT);
 		g2.setColor(Color.black);
+		
 		// What's up text appears below cat head, +10 places below 
 		// so it doesn't overlap the drawing
 		g2.drawString("What's Up", catX, catY+HEAD_DIMENSION+10);	
